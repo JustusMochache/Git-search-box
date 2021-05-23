@@ -1,0 +1,55 @@
+<div class="container">
+    <div *ngIf="profile">
+        <div class="panel panel-default">
+            <div class="panel heading">
+                {{profile.name}}<br> <small>{{profile.login}}</small>
+                <br><span>Work at {{ profile.location}}</span>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="cd-sm-3">
+                        <img src="{{profile.avatar_url}}" class="img-circle img-responsive"  alt="profile images">
+                    </div>
+                    <div class="col-sm-5">
+                        <ul class="list-group">
+                            <li class="list-group-item" *ngIf="profile.bio">{{profile.bio}}</li>
+                            <li class="list-group-item" *ngIf="profile.twitter_username">{{profile.twitter_username}}</li>
+                            <li class="list-group-item" *ngIf="profile.blog">{{profile.blog}}</li>
+                            <li class="list-group-item" *ngIf="profile.email">{{profile.bio}}</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4">
+                        <div>
+                            <p>
+                                <span class="label label-default">{{profile.followers}} Followers</span>
+                                <span class="label label-primary">{{profile.following}} Follwing</span>
+                                <span class="label label-success">{{profile.public_gist}} </span>
+                                <span class="label label-primary">{{profile.public_repos}} </span>
+                            </p>
+                        
+                            <p>
+                                <a href="{{profile.html_url}}" target="blank" class="btn btn-success btn-sm">View Profile on Github</a>
+                            </p>
+                            <div class="panel panel-default">
+                                <div class="panel heading">
+                                    <div class="panel-title">repos</div>
+                                </div>
+                                <div class="panel-body" *ngFor="let repo of repos">
+                                    <p>
+                                        {{repo.name}}
+                                        <a href="{{repo.html_url}} btn btn-sm btn warning pull-right">View the repo projecto</a>
+                                    </p>
+                                    <p>
+                                        {{repo.description}}
+                                    </p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
